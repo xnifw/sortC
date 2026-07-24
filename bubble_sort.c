@@ -1,21 +1,21 @@
 #include <stdio.h>
 
 int main(void) {
-    int items[] = {5, 2, 9, 1, 3};
-    int itemCount = sizeof(items) / sizeof(items[0]);
+    int data[] = {5, 2, 9, 1, 3};
+    int dataSize = sizeof(data) / sizeof(data[0]);
 
-    for (int scanRound = 0; scanRound < itemCount - 1; scanRound++) {
-        for (int leftIndex = 0; leftIndex < itemCount - scanRound - 1; leftIndex++) {
-            if (items[leftIndex] > items[leftIndex + 1]) {
-                int leftValue = items[leftIndex];
-                items[leftIndex] = items[leftIndex + 1];
-                items[leftIndex + 1] = leftValue;
+    for (int passNumber = 0; passNumber < dataSize - 1; passNumber++) {
+        for (int currentIndex = 0; currentIndex < dataSize - passNumber - 1; currentIndex++) {
+            if (data[currentIndex] > data[currentIndex + 1]) {
+                int savedValue = data[currentIndex];
+                data[currentIndex] = data[currentIndex + 1];
+                data[currentIndex + 1] = savedValue;
             }
         }
     }
 
-    for (int outputIndex = 0; outputIndex < itemCount; outputIndex++) {
-        printf("%d ", items[outputIndex]);
+    for (int currentIndex = 0; currentIndex < dataSize; currentIndex++) {
+        printf("%d ", data[currentIndex]);
     }
     printf("\n");
 
