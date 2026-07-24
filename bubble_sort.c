@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 int main(void) {
-    int arr[] = {5, 2, 9, 1, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int scores[] = {5, 2, 9, 1, 3};
+    int scoreCount = sizeof(scores) / sizeof(scores[0]);
 
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+    for (int round = 0; round < scoreCount - 1; round++) {
+        for (int leftPosition = 0; leftPosition < scoreCount - round - 1; leftPosition++) {
+            if (scores[leftPosition] > scores[leftPosition + 1]) {
+                int scoreToMove = scores[leftPosition];
+                scores[leftPosition] = scores[leftPosition + 1];
+                scores[leftPosition + 1] = scoreToMove;
             }
         }
     }
 
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (int printPosition = 0; printPosition < scoreCount; printPosition++) {
+        printf("%d ", scores[printPosition]);
     }
     printf("\n");
 
     return 0;
 }
+
