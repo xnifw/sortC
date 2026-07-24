@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 int main(void) {
-    int arr[] = {5, 2, 9, 1, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int sampleNumbers[] = {5, 2, 9, 1, 3};
+    int numberCount = sizeof(sampleNumbers) / sizeof(sampleNumbers[0]);
 
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+    for (int passIndex = 0; passIndex < numberCount - 1; passIndex++) {
+        for (int compareIndex = 0; compareIndex < numberCount - passIndex - 1; compareIndex++) {
+            if (sampleNumbers[compareIndex] > sampleNumbers[compareIndex + 1]) {
+                int temporaryNumber = sampleNumbers[compareIndex];
+                sampleNumbers[compareIndex] = sampleNumbers[compareIndex + 1];
+                sampleNumbers[compareIndex + 1] = temporaryNumber;
             }
         }
     }
 
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (int outputIndex = 0; outputIndex < numberCount; outputIndex++) {
+        printf("%d ", sampleNumbers[outputIndex]);
     }
     printf("\n");
 
     return 0;
 }
+
