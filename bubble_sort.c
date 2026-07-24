@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 int main(void) {
-    int arr[] = {5, 2, 9, 1, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int items[] = {5, 2, 9, 1, 3};
+    int itemCount = sizeof(items) / sizeof(items[0]);
 
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+    for (int scanRound = 0; scanRound < itemCount - 1; scanRound++) {
+        for (int leftIndex = 0; leftIndex < itemCount - scanRound - 1; leftIndex++) {
+            if (items[leftIndex] > items[leftIndex + 1]) {
+                int leftValue = items[leftIndex];
+                items[leftIndex] = items[leftIndex + 1];
+                items[leftIndex + 1] = leftValue;
             }
         }
     }
 
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (int outputIndex = 0; outputIndex < itemCount; outputIndex++) {
+        printf("%d ", items[outputIndex]);
     }
     printf("\n");
 
     return 0;
 }
+
