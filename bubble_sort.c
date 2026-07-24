@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 int main(void) {
-    int arr[] = {5, 2, 9, 1, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int data[] = {5, 2, 9, 1, 3};
+    int dataSize = sizeof(data) / sizeof(data[0]);
 
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+    for (int passNumber = 0; passNumber < dataSize - 1; passNumber++) {
+        for (int currentIndex = 0; currentIndex < dataSize - passNumber - 1; currentIndex++) {
+            if (data[currentIndex] > data[currentIndex + 1]) {
+                int savedValue = data[currentIndex];
+                data[currentIndex] = data[currentIndex + 1];
+                data[currentIndex + 1] = savedValue;
             }
         }
     }
 
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (int currentIndex = 0; currentIndex < dataSize; currentIndex++) {
+        printf("%d ", data[currentIndex]);
     }
     printf("\n");
 
     return 0;
 }
+
