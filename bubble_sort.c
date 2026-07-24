@@ -1,21 +1,21 @@
 #include <stdio.h>
 
 int main(void) {
-    int scores[] = {5, 2, 9, 1, 3};
-    int scoreCount = sizeof(scores) / sizeof(scores[0]);
+    int valuesToSort[] = {5, 2, 9, 1, 3};
+    int totalValues = sizeof(valuesToSort) / sizeof(valuesToSort[0]);
 
-    for (int round = 0; round < scoreCount - 1; round++) {
-        for (int leftPosition = 0; leftPosition < scoreCount - round - 1; leftPosition++) {
-            if (scores[leftPosition] > scores[leftPosition + 1]) {
-                int scoreToMove = scores[leftPosition];
-                scores[leftPosition] = scores[leftPosition + 1];
-                scores[leftPosition + 1] = scoreToMove;
+    for (int sortPass = 0; sortPass < totalValues - 1; sortPass++) {
+        for (int comparePosition = 0; comparePosition < totalValues - sortPass - 1; comparePosition++) {
+            if (valuesToSort[comparePosition] > valuesToSort[comparePosition + 1]) {
+                int valueBeingMoved = valuesToSort[comparePosition];
+                valuesToSort[comparePosition] = valuesToSort[comparePosition + 1];
+                valuesToSort[comparePosition + 1] = valueBeingMoved;
             }
         }
     }
 
-    for (int printPosition = 0; printPosition < scoreCount; printPosition++) {
-        printf("%d ", scores[printPosition]);
+    for (int printPosition = 0; printPosition < totalValues; printPosition++) {
+        printf("%d ", valuesToSort[printPosition]);
     }
     printf("\n");
 
