@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 int main(void) {
-    int arr[] = {5, 2, 9, 1, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int valuesToSort[] = {5, 2, 9, 1, 3};
+    int totalValues = sizeof(valuesToSort) / sizeof(valuesToSort[0]);
 
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+    for (int sortPass = 0; sortPass < totalValues - 1; sortPass++) {
+        for (int comparePosition = 0; comparePosition < totalValues - sortPass - 1; comparePosition++) {
+            if (valuesToSort[comparePosition] > valuesToSort[comparePosition + 1]) {
+                int valueBeingMoved = valuesToSort[comparePosition];
+                valuesToSort[comparePosition] = valuesToSort[comparePosition + 1];
+                valuesToSort[comparePosition + 1] = valueBeingMoved;
             }
         }
     }
 
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (int printPosition = 0; printPosition < totalValues; printPosition++) {
+        printf("%d ", valuesToSort[printPosition]);
     }
     printf("\n");
 
     return 0;
 }
+
